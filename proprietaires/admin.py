@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import proprietaire
+from .models import Proprietaire
 
-admin.site.register(proprietaire)
+admin.site.register(Proprietaire)

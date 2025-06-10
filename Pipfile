@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 django = "*"
 django-environ = "*"
+psycopg2-binary = "*"
+dj-database-url = "*"
+pillow = "*"
 
 [dev-packages]
 

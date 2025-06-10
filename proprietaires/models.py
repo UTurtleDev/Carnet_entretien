@@ -1,6 +1,6 @@
 from django.db import models
 
-class proprietaire(models.Model):
+class Proprietaire(models.Model):
     nom = models.CharField(max_length=50)
     prenom = models.CharField(max_length=50)
     adresse = models.CharField(max_length=50)
