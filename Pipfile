@@ -9,6 +9,7 @@ psycopg2-binary = "*"
 dj-database-url = "*"
 pillow = "*"
 django = "*"
+django-baton = "*"
 
 [dev-packages]
 

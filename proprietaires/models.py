@@ -10,4 +10,4 @@ class Proprietaire(models.Model):
     email = models.EmailField()
 
     def __str__(self):
-        return self.nom
+        return f"{self.nom} {self.prenom}"
