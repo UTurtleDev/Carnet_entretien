@@ -37,6 +37,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'baton',
+    'entretiens',
     'vehicules',
     'proprietaires',
     'users',

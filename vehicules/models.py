@@ -25,6 +25,7 @@ class Vehicule(models.Model):
     carburant = models.CharField(max_length=50, choices=ChoixCarburant.choices, blank=True, null=True)
     transmission = models.CharField(max_length=50, choices=ChoixTransmission.choices, blank=True, null=True)
     proprietaire = models.ForeignKey(Proprietaire, on_delete=models.CASCADE)
+    facture = models.ImageField(upload_to='factures', blank=True, null=True)
     photo = models.ImageField()
 
     def __str__(self):
