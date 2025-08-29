@@ -12,10 +12,11 @@ class ChoixTransmission(models.TextChoices):
     manuelle = 'Manuelle'
     automatique = 'Automatique'
 
-class Vehicule(models.Model):
+class Vehicules(models.Model):
     marque = models.CharField(max_length=50)
     modele = models.CharField(max_length=50)
     annee = models.DateField()
+    kilometrage = models.IntegerField(blank=True, null=True)
     annee_achat = models.DateField()
     kilometrage_achat = models.IntegerField()
     couleur = models.CharField(max_length=50)
@@ -26,7 +27,15 @@ class Vehicule(models.Model):
     transmission = models.CharField(max_length=50, choices=ChoixTransmission.choices, blank=True, null=True)
     proprietaire = models.ForeignKey(Proprietaire, on_delete=models.CASCADE)
     facture = models.ImageField(upload_to='factures', blank=True, null=True)
-    photo = models.ImageField()
+    photo = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.marque} {self.modele}"
+    
+    @property
+    def kilometrage_separator(self):
+        return f"{self.kilometrage:,.0f} km".replace(',', ' ')
+    
+    class Meta:
+        verbose_name = "Véhicule"
+        verbose_name_plural = "Véhicules"

@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+
+    {% block title %}<title>Document</title>{% endblock title %}
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1>Gestion voitures</h1>
+            <div class="nav-menu">
+                <a href="{% url 'dashboard:dashboard' %}">Accueil</a>
+                <a href="{% url 'dashboard:dashboard' %}">Vehicule</a>
+                <a href="{% url 'dashboard:dashboard' %}">Entretien</a>
+            </div>
+        </div>        
+    </nav>
+    {% block content %}{% endblock content %}
+</body>
+</html>

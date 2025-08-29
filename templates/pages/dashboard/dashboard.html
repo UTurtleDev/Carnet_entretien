@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Dashboard</title>{% endblock title %}
+
+
+{% block content %}
+<div class="container">
+    <section class="vehicules">
+        <h2>Mes Véhicules</h2>
+        <div class="vehicules__cards">
+            {% for vehicule in vehicules %}
+            <div class="card-item">
+                <div class="card__img">
+                    <img src="{{ vehicule.photo.url }}" alt="{{ vehicule.marque }} {{ vehicule.modele }}">
+                </div>
+                <div class="card__content">
+                    <h3>{{ vehicule.marque }} {{ vehicule.modele }}</h3>
+                    <p>Immatriculation : {{ vehicule.immatriculation }}</p>
+                    <p>Kilometrage : {{ vehicule.kilometrage_separator }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="next_entretiens">
+        <h2>Entretiens à prévoir</h2>
+        <div class="next_entretiens__cards">
+            <div class="next_entretiens__items">
+                <h3>Volkswagen Golf VII :</h3>
+                <p>Révision</p>
+                <p>(06/26)</p>
+            </div>
+            <div class="next_entretiens__items">
+                <h3>Volkswagen Golf VII :</h3>
+                <p>Contrôle technique</p>
+                <p>(06/26)</p>
+            </div>
+            <div class="next_entretiens__items">
+                <h3>Ford Mustang Shelby GT350 :</h3>
+                <p>Contrôle technique</p>
+                <p>(06/26)</p>
+            </div>
+            <div class="next_entretiens__items">
+                <h3>Porsche Carera S :</h3>
+                <p>Révision</p>
+                <p>(09/26)</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="entretiens">
+        <h2>Derniers entretiens</h2>
+        <div class="entretriens__cards">
+            <div class="entretiens__items">
+                <h3>Volkswagen Golf VII :</h3>
+                <ul>
+                    <li>Révision (06/25)</li>
+                    <li>Changement amortisseurs avant (12/24)</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+    
+
+
+
+
+</div>
+{% endblock content %}

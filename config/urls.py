@@ -23,6 +23,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('baton/', include('baton.urls')),
+    path('dashboard/', include('dashboard.urls'), name='dashboard'),
+    path("__reload__/", include("django_browser_reload.urls")),
 ]
 
 # Pour voir les fichiers uploader en mode developpement

@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-from vehicules.models import Vehicule
+from vehicules.models import Vehicules
 
 # Create your models here.
 def validateur_extentions(value):
@@ -8,7 +8,7 @@ def validateur_extentions(value):
         raise ValidationError('Le fichier doit avoir l\'extension .pdf')
 
 class Entretien(models.Model):
-    vehicule = models.ForeignKey(Vehicule, on_delete=models.CASCADE)
+    vehicule = models.ForeignKey(Vehicules, on_delete=models.CASCADE)
     date = models.DateField()
     kilometrage = models.IntegerField()
     type_entretien = models.TextField()
