@@ -5,3 +5,6 @@ __pycache__/.venv/
 .supabase.txt
 .models
 
+.python-version
+.CLAUDE.md
+

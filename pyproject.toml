@@ -1,6 +1,6 @@
 [project]
 name = "carnet-entretien"
 version = "0.1.0"
-description = "Add your description here"
+description = "Simple Django app for vehicle maintenance tracking"
 requires-python = ">=3.12"
 dependencies = []
