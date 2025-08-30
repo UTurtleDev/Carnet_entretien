@@ -34,7 +34,7 @@ class Vehicules(models.Model):
     
     @property
     def kilometrage_separator(self):
-        return f"{self.kilometrage:,.0f} km".replace(',', ' ')
+        return f"{self.kilometrage:,.0f}".replace(',', ' ')
     
     class Meta:
         verbose_name = "Véhicule"

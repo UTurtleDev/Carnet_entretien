@@ -6,5 +6,10 @@ __pycache__/.venv/
 .models
 
 .python-version
-CLAUDE.md
+
+# Claude Code
+.claude_history
+.claude_cache/
+
+
 

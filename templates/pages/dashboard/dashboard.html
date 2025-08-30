@@ -16,7 +16,11 @@
                 <div class="card__content">
                     <h3>{{ vehicule.marque }} {{ vehicule.modele }}</h3>
                     <p>Immatriculation : {{ vehicule.immatriculation }}</p>
-                    <p>Kilometrage : {{ vehicule.kilometrage_separator }}</p>
+                    {% if vehicule.entretiens.all %}
+                    <p>Kilometrage : {{ vehicule.entretiens.first.kilometrage_separator }} km</p>
+                    {% else %}
+                    <p>Kilometrage : {{ vehicule.kilometrage_separator }} km</p>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}
@@ -26,39 +30,42 @@
     <section class="next_entretiens">
         <h2>Entretiens à prévoir</h2>
         <div class="next_entretiens__cards">
+            {% for entretien in entretiens_planifies_tries %}
             <div class="next_entretiens__items">
-                <h3>Volkswagen Golf VII :</h3>
-                <p>Révision</p>
-                <p>(06/26)</p>
+                <h3>{{ entretien.vehicule.marque }} {{ entretien.vehicule.modele }} :</h3>
+                {% if entretien.date_prevue and entretien.kilometrage_prevu %}
+                <p>{{ entretien.date_prevue }} ou {{ entretien.kilometrage_prevu_separator }} km</p>
+                {% elif entretien.date_prevue %}
+                <p>{{ entretien.date_prevue }}</p>
+                {% else %}
+                <p>{{ entretien.kilometrage_prevu_separator }} km</p>
+                {% endif %}
+                <p>-</p>
+                <p>{{ entretien.type_entretien }}</p>
             </div>
-            <div class="next_entretiens__items">
-                <h3>Volkswagen Golf VII :</h3>
-                <p>Contrôle technique</p>
-                <p>(06/26)</p>
-            </div>
-            <div class="next_entretiens__items">
-                <h3>Ford Mustang Shelby GT350 :</h3>
-                <p>Contrôle technique</p>
-                <p>(06/26)</p>
-            </div>
-            <div class="next_entretiens__items">
-                <h3>Porsche Carera S :</h3>
-                <p>Révision</p>
-                <p>(09/26)</p>
-            </div>
+            {% endfor %}
         </div>
     </section>
 
     <section class="entretiens">
         <h2>Derniers entretiens</h2>
         <div class="entretriens__cards">
+            {% for vehicule in vehicules %}
             <div class="entretiens__items">
-                <h3>Volkswagen Golf VII :</h3>
+                <h3>{{vehicule.marque}} {{vehicule.modele}} :</h3>
+                {% if vehicule.entretiens.all %}
                 <ul>
-                    <li>Révision (06/25)</li>
-                    <li>Changement amortisseurs avant (12/24)</li>
+                    {% for entretien in vehicule.entretiens.all %}
+                    <li>{{entretien.date}} - {{entretien.type_entretien}}</li>
+                    {% endfor %}
                 </ul>
+                {% else %}
+                <ul>
+                    <li>Aucun entretien pour le moment</li>
+                </ul>
+                {% endif %}
             </div>
+            {% endfor %}
 
         </div>
 
