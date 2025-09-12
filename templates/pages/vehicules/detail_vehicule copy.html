@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}<title>{{ vehicules.marque }} {{ vehicules.modele }} - Détail</title>{% endblock title %}
+
+
+{% block content %}
+<div class="container">
+    <section class="detail-vehicule">
+        <h1>{{ vehicules.marque }} {{ vehicules.modele }}</h1>
+        
+        {% if vehicules.photo %}
+        <div class="vehicule__img">
+            <img src="{{ vehicules.photo.url }}" alt="{{ vehicules.marque }} {{ vehicules.modele }}">
+        </div>
+        {% endif %}
+        
+        <div class="vehicule__info">
+            <h2>Informations générales</h2>
+            <p><strong>Immatriculation :</strong> {{ vehicules.immatriculation }}</p>
+            <p><strong>Année :</strong> {{ vehicules.annee }}</p>
+            <p><strong>Couleur :</strong> {{ vehicules.couleur }}</p>
+            <p><strong>Carburant :</strong> {{ vehicules.carburant }}</p>
+            <p><strong>Transmission :</strong> {{ vehicules.transmission }}</p>
+            <p><strong>Chevaux fiscaux :</strong> {{ vehicules.chevaux_fiscaux }}</p>
+            <p><strong>Chevaux DIN :</strong> {{ vehicules.chevaux_din }}</p>
+            {% if vehicules.kilometrage %}
+            <p><strong>Kilométrage :</strong> {{ vehicules.kilometrage_separator }} km</p>
+            {% endif %}
+            <p><strong>Propriétaire :</strong> {{ vehicules.proprietaire }}</p>
+        </div>
+        
+        <div class="actions">
+            <a href="{% url 'dashboard:dashboard' %}" class="btn-back">← Retour au dashboard</a>
+        </div>
+    </section>
+</div>
+{% endblock content %}

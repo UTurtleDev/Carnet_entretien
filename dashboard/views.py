@@ -9,7 +9,7 @@ from entretiens.models import EntretienPlanifie
 def dashboard(request):
     return render(request, 'pages/dashboard/dashboard.html')
 
-class dashboardView(ListView):
+class DashboardView(ListView):
     model = Vehicules
     template_name = 'pages/dashboard/dashboard.html'
     context_object_name = 'vehicules'

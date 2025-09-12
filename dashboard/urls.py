@@ -3,14 +3,14 @@ from baton.autodiscover import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import dashboard, dashboardView
+from .views import dashboard, DashboardView
 
 app_name = 'dashboard'
 
 
 urlpatterns = [
     # path('', dashboard, name='dashboard'),
-    path('', dashboardView.as_view(), name='dashboard'),
+    path('', DashboardView.as_view(), name='dashboard'),
     path('baton/', include('baton.urls')),
 ]
 

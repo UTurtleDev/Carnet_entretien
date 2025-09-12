@@ -27,7 +27,7 @@ class Vehicules(models.Model):
     transmission = models.CharField(max_length=50, choices=ChoixTransmission.choices, blank=True, null=True)
     proprietaire = models.ForeignKey(Proprietaire, on_delete=models.CASCADE)
     facture = models.ImageField(upload_to='factures', blank=True, null=True)
-    photo = models.ImageField(blank=True, null=True)
+    photo = models.ImageField(upload_to='photos/', blank=True, null=True)
 
     def __str__(self):
         return f"{self.marque} {self.modele}"

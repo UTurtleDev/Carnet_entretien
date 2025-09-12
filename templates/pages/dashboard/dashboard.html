@@ -9,7 +9,7 @@
         <h2>Mes Véhicules</h2>
         <div class="vehicules__cards">
             {% for vehicule in vehicules %}
-            <div class="card-item">
+            <a href="{% url 'vehicules:detail' vehicule.pk %}" class="card-item">
                 <div class="card__img">
                     <img src="{{ vehicule.photo.url }}" alt="{{ vehicule.marque }} {{ vehicule.modele }}">
                 </div>
@@ -22,7 +22,7 @@
                     <p>Kilometrage : {{ vehicule.kilometrage_separator }} km</p>
                     {% endif %}
                 </div>
-            </div>
+            </a>
             {% endfor %}
         </div>
     </section>

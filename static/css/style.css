@@ -3,7 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     /* list-style-type: none; */
-    /* text-decoration: none; */
+}
+
+a {
+    text-decoration: none;
 }
 
 :root {
@@ -312,4 +315,156 @@ footer {
     color: var(--text-color-white);
     line-height: 1.6;
     margin-bottom: 10px;
+}
+
+
+
+/* ###########################################################################
+############################## detail vehicule ###############################
+########################################################################### */
+
+
+.detail-vehicule {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--carbon-medium);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--carbon-light);
+}
+
+.detail-vehicule::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--electric-blue), var(--electric-blue-light));
+}
+
+.detail-vehicule h2 {
+    padding: 20px 32px;
+    color: var(--electric-blue);
+}
+
+.detail-vehicule h2::after {
+    content: "";
+    width: 0px;
+}
+
+
+.infos-basic__container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 32px;
+    border-radius: 10px;
+    color: var(--text-color-white);
+}
+
+.infos-basic {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    border-radius: 10px;
+    gap: 40px;
+}
+
+.vehicule__img {
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.vehicule__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0px 32px;
+    color: var(--text-color-white);}
+
+.description h3 {
+    margin-bottom: 40px;
+    color: var(--electric-blue-dark);
+}
+
+.cards-infos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    border-radius: 10px;
+    color: var(--text-color-white);
+    margin-top: 30px;
+}
+
+.card-item {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--electric-blue);
+    display: block;
+    background-color: var(--carbon-dark);
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 10px;
+    border: 1px solid var(--carbon-light);
+    transition: transform 0.3s;
+}
+
+.card-item p:nth-child(2) {
+    font-size: 14px;
+    color: var(--carbon-lighter);
+    margin-top: 0.5rem;
+}
+
+
+.entretien_vehicules {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+
+.entretien_vehicules h3{
+    font-size: 24px;
+    padding: 20px 32px;
+    color: var(--electric-blue);
+}
+
+.entretien_vehicules__historique {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--carbon-medium);
+    border-radius: 15px;
+    border: 1px solid var(--carbon-light);   
+    width: 100%; 
+}
+
+
+.entretien_vehicules__stats {
+    background-color: var(--carbon-medium);
+    border-radius: 15px;
+    border: 1px solid var(--carbon-light);   
+    margin-left: 30px;
+
+}
+
+.entretien_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 32px;
+    color: var(--text-color-white);
+    background-color: var(--carbon-dark);
+    width: 90%
 }

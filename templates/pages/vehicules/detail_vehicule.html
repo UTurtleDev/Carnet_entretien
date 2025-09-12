@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}<title>{{ vehicules.marque }} {{ vehicules.modele }} - Détail</title>{% endblock title %}
+
+
+{% block content %}
+<div class="container">
+    <section class="detail-vehicule">
+        <h2>{{ vehicules.marque }} {{ vehicules.modele }}</h2>
+        <div class="infos-basic__container">
+            <div class="infos-basic">
+                <div class="vehicule__img">
+                    <img src="{{ vehicules.photo.url }}" alt="{{ vehicules.marque }} {{ vehicules.modele }}">
+                </div>
+                <div class="description">
+                    <h3>Informations générales</h3>
+                    <p><strong>Propriétaire :</strong> {{ vehicules.proprietaire }}</p>
+                    <p><strong>Couleur :</strong> {{ vehicules.couleur }}</p>
+                    <p><strong>Transmission :</strong> {{ vehicules.transmission }}</p>
+                    <p><strong>Chevaux fiscaux :</strong> {{ vehicules.chevaux_fiscaux }}</p>
+                    <p><strong>Chevaux DIN :</strong> {{ vehicules.chevaux_din }}</p>
+                </div>
+        </div>
+        <div class="cards-infos">
+            <div class="card-item">
+                <p>{{ vehicules.entretiens.first.kilometrage_separator }}</p>
+                <p>Kilométres</p>
+            </div>
+            <div class="card-item">
+                <p>{{ vehicules.annee|date:"Y" }}</p>
+                <p>Année</p>
+            </div>
+            <div class="card-item">
+                <p>{{ vehicules.carburant }}</p>
+                <p>Carburant</p>
+            </div>
+            <div class="card-item">
+                <p>{{ vehicules.immatriculation }}</p>
+                <p>Immatriculation</p>
+            </div>
+            <div class="card-item">
+                <p>{{ vehicules.immatriculation }}</p>
+                <p>Contrôle technique</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="entretien_vehicules">
+        <div class="entretien_vehicules__historique">
+            <h3>Historique des entretiens</h3>
+            <div class="entretiens_all">
+                <div class="entretien_item">
+                    <div class="entretiens_1">
+                        <p>{{ vehicules.entretiens.first.type_entretien }}</p>
+                        <p>{{ vehicules.entretiens.first.kilometrage_separator }} km</p>
+                    </div>
+                    <div class="entretiens_2">
+                        <p>{{ vehicules.entretiens.first.date|date:"d/m/Y" }}</p>
+                        <p>{{ vehicules.entretiens.first.cout }} €</p>                   
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="entretien_vehicules__stats">
+            <h3>Statistiques</h3>
+            <div class="entretiens_stats1"></div>
+            <div class="entretiens_stats2"></div>
+
+        </div>
+
+    </section>
+
+</div>
+{% endblock content %}

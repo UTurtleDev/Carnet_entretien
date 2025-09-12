@@ -19,11 +19,17 @@ from baton.autodiscover import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.shortcuts import redirect
+
+def redirect_to_dashboard(request):
+    return redirect('dashboard:dashboard')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('baton/', include('baton.urls')),
     path('dashboard/', include('dashboard.urls'), name='dashboard'),
+    path('vehicules/', include('vehicules.urls'), name='vehicules'),
+    path('', redirect_to_dashboard, name='home'),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
 
