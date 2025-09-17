@@ -435,7 +435,8 @@ footer {
     margin-top: 30px;
 }
 
-.entretien_vehicules h3{
+.entretien_vehicules h3,
+.entretiens_a_venir h3 {
     font-size: 24px;
     padding: 20px 32px;
     color: var(--electric-blue);
@@ -450,14 +451,15 @@ footer {
     width: 100%; 
 }
 
-
-.entretien_vehicules__stats {
-    background-color: var(--carbon-medium);
-    border-radius: 15px;
-    border: 1px solid var(--carbon-light);   
-    margin-left: 30px;
-
+.entretiens_all,
+.entretiens_a_venir {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 32px;
+    color: var(--text-color-white);
 }
+
 
 .entretien_item {
     display: flex;
@@ -466,5 +468,95 @@ footer {
     padding: 20px 32px;
     color: var(--text-color-white);
     background-color: var(--carbon-dark);
-    width: 90%
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--carbon-light);
+    border-left: 4px solid var(--electric-blue);
+}
+
+.entretiens_all .entretien_item:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+    border-color: var(--electric-blue);
+    cursor: pointer;
+}
+
+.entretien_item .entretiens_1 p:last-child {
+    color: var(--carbon-lighter);
+    margin-top: 15px;
+}
+
+.entretien_item .entretiens_2 p:first-child {
+    color: var(--electric-blue);
+}
+
+.entretien_item .entretiens_2 p:last-child {
+    color: var(--carbon-lighter);
+    text-align: right;
+    margin-top: 15px;
+
+}
+
+.entretien_vehicules__stats {
+    background-color: var(--carbon-medium);
+    border-radius: 15px;
+    border: 1px solid var(--carbon-light);   
+    margin-left: 30px;
+    width: 50%;
+
+}
+
+.entretiens_a_venir .entretiens_1 p:nth-child(2) {
+    color: var(--carbon-lighter);
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.entretiens_a_venir .entretiens_1 p:nth-child(3) {
+    display: inline-block;
+    color: var(--carbon-lighter);
+}
+
+.document_card {
+    border-radius: 10px;
+    background-color: var(--carbon-medium);
+    border: 1px solid var(--carbon-light); 
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.document_card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+    border-color: var(--electric-blue);
+
+}
+
+
+.document_item {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    border-radius: 10px;
+    color: var(--text-color-white);
+    padding: 20px 32px;
+}
+
+.document_icone {
+    font-size: 32px;
+    padding: 20px;
+}
+
+
+.document_item p {
+    background-color: var(--carbon-dark);
+    text-align: center;
+
+}
+
+.document_text {
+    padding-bottom: 20px;
+    font-size: 13px;
 }
